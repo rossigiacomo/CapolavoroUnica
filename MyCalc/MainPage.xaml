@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage x:Class="MyCalc.MainPage"
+            xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MyCalc"
+             BackgroundColor="White">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="NumeriStile" TargetType="Button">
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="TextColor" Value="Black" />
+
+            </Style>
+            <Style x:Key="OperazioneStile" TargetType="Button">
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="BackgroundColor" Value="#fffefe" />
+                <Setter Property="TextColor" Value="#a8cff2" />
+                
+
+            </Style>
+            <Style x:Key="PulsantiMemoria" TargetType="Button">
+                <Setter Property="CornerRadius" Value="100" />
+                <Setter Property="BackgroundColor" Value="#a8cff2" />
+                <Setter Property="TextColor" Value="White" />
+
+
+            </Style>
+            <Style x:Key="UgualeStile" TargetType="Button">
+                <Setter Property="CornerRadius" Value="100" />
+              
+                <Setter Property="BackgroundColor" Value="#a8cff2" />
+                <Setter Property="TextColor" Value="Black" />
+
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid RowSpacing="0.5"
+   ColumnSpacing="0.5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="180" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label x:Name="CurrentCalculation"
+               Padding="10"
+               FontSize="22"
+               LineBreakMode="NoWrap"
+               Grid.ColumnSpan="4"
+               Text=""
+               TextColor="{StaticResource Black}"
+               HorizontalTextAlignment="End"
+               VerticalTextAlignment="Start"
+               Grid.Row="2"
+               HeightRequest="550"/>
+
+        <Label x:Name="resultText"
+               Padding="10"
+               FontSize="64" FontAttributes="Bold" Text="0"
+               HorizontalTextAlignment="End"
+               VerticalTextAlignment="End"
+               TextColor="{StaticResource Black}"
+               LineBreakMode="NoWrap" Grid.ColumnSpan="4" 
+               />
+
+
+
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" ColumnDefinitions="*,*,*,*,*,*">
+            <Button x:Name="MC" Text="MC"  FontAttributes="Bold" Style="{StaticResource PulsantiMemoria}" HeightRequest="60" WidthRequest="60" Clicked="MemoryClearButton"  Grid.Column="0" FontSize="18"/>
+            <Button x:Name="MR" Text="MR" FontAttributes="Bold"  Style="{StaticResource PulsantiMemoria}"  HeightRequest="60" WidthRequest="60" Clicked="MemoryCallButton" Grid.Column="1" FontSize="18"/>
+            <Button Text="M+"  FontAttributes="Bold" Style="{StaticResource PulsantiMemoria}"  HeightRequest="60" WidthRequest="60" Clicked="MemoryAddButton" Grid.Column="2" FontSize="18"/>
+            <Button Text="M-" FontAttributes="Bold" Style="{StaticResource PulsantiMemoria}" HeightRequest="60" WidthRequest="60" Clicked="MemorySubButton" Grid.Column="3" FontSize="18"/>
+            <Button Text="MS"  FontAttributes="Bold" Style="{StaticResource PulsantiMemoria}"  HeightRequest="60" WidthRequest="60" Clicked="MemoryStoreButton" Grid.Column="4" FontSize="18"/>
+            <Button x:Name="M" Text="Mv"  HeightRequest="60" Style="{StaticResource PulsantiMemoria}" WidthRequest="60" Clicked="MemoryButton" Grid.Column="5" FontSize="20"/>
+        </Grid>
+        <Button Text="C" Grid.Row="2" Grid.Column="0" HeightRequest="65" WidthRequest="65"  FontSize="28" FontAttributes="Bold" Style="{StaticResource OperazioneStile}"
+               Clicked="ClearButton" />
+        <Button Text="⌫" Grid.Row="2" Grid.Column="1" HeightRequest="65" WidthRequest="65"  FontSize="28" FontAttributes="Bold" Style="{StaticResource OperazioneStile}"
+               Clicked="BackSpace" />
+        <Button Text="√" Grid.Row="2" Grid.Column="2" HeightRequest="65" WidthRequest="65"  FontAttributes="Bold" FontSize="28" Style="{StaticResource OperazioneStile}"
+    Clicked="RadiceQuadrataButton" />
+        <Button Text="7" Grid.Row="3" Grid.Column="0" HeightRequest="65" WidthRequest="65"  FontSize ="28" FontAttributes="Bold" x:Name="Sette" Style="{StaticResource NumeriStile}"
+    Clicked="Button7" />
+        <Button Text="8" Grid.Row="3" Grid.Column="1" HeightRequest="65" WidthRequest="65"   FontSize ="28" FontAttributes="Bold"  x:Name="Otto" Style="{StaticResource NumeriStile}"
+    Clicked="Button8" />
+        <Button Text="9" Grid.Row="3" Grid.Column="2" HeightRequest="65" WidthRequest="65"  FontSize  ="28" FontAttributes="Bold"  x:Name="Nove" Style="{StaticResource NumeriStile}"
+    Clicked="Button9" />
+        <Button Text="4" Grid.Row="4" Grid.Column="0" HeightRequest="65" WidthRequest="65"  FontSize  ="28" FontAttributes="Bold"  x:Name="Quattro" Style="{StaticResource NumeriStile}"
+Clicked="Button4" />
+
+        <Button Text="5" Grid.Row="4" Grid.Column="1"   HeightRequest="65" WidthRequest="65"    FontSize ="28" FontAttributes="Bold"  x:Name="Cinque" Style="{StaticResource NumeriStile}"
+ Clicked="Button5" />
+        <Button Text="6" Grid.Row="4" Grid.Column="2"    HeightRequest="65" WidthRequest="65"   FontSize ="28" FontAttributes="Bold"  x:Name="Sei" Style="{StaticResource NumeriStile}"
+ Clicked="Button6" />
+        <Button Text="1" Grid.Row="5" Grid.Column="0"   HeightRequest="65" WidthRequest="65"     FontSize ="28" FontAttributes="Bold"  x:Name="Uno" Style="{StaticResource NumeriStile}"
+ Clicked="Button1" />
+        <Button Text="2" Grid.Row="5" Grid.Column="1"    HeightRequest="65" WidthRequest="65"    FontSize ="28" FontAttributes="Bold"  x:Name="Due" Style="{StaticResource NumeriStile}"
+ Clicked="Button2" />
+        <Button Text="3" Grid.Row="5" Grid.Column="2"     HeightRequest="65" WidthRequest="65"   FontSize ="28" FontAttributes="Bold"  x:Name="Tre" Style="{StaticResource NumeriStile}"
+ Clicked="Button3" />
+        <Button Text="+/-" Grid.Row="6" Grid.Column="0"   HeightRequest="65" WidthRequest="65"    FontSize ="28" FontAttributes="Bold" Style="{StaticResource OperazioneStile}"
+ Clicked="Negativo" />
+        <Button Text="0" Grid.Row="6" Grid.Column="1"   HeightRequest="65" WidthRequest="65"     FontSize ="28" FontAttributes="Bold" x:Name="Zero" Style="{StaticResource NumeriStile}"
+ Clicked="Button0" />
+        <Button Text="." Grid.Row="6" Grid.Column="2"    HeightRequest="65" WidthRequest="65"    FontSize ="28" FontAttributes="Bold" Style="{StaticResource OperazioneStile}"
+ Clicked="PuntoButton" />
+
+        <Button Text="÷" Grid.Row="2" Grid.Column="3" HeightRequest="65" WidthRequest="65"  FontSize ="32" FontAttributes="Bold"    Style="{StaticResource OperazioneStile}"
+  Clicked="DivisioneButton" />
+        <Button Text="X" Grid.Row="3" Grid.Column="3" HeightRequest="65" WidthRequest="65"  FontSize ="32" FontAttributes="Bold" Style="{StaticResource OperazioneStile}"
+  Clicked="MoltiplicatoreButton" />
+        <Button Text="-" Grid.Row="4" Grid.Column="3"  HeightRequest="65" WidthRequest="65"  FontSize ="32" FontAttributes="Bold" Style="{StaticResource OperazioneStile}"
+  Clicked="SottrazioneButton" />
+        <Button Text="+" Grid.Row="5" Grid.Column="3"  HeightRequest="65" WidthRequest="65"   FontSize="32" FontAttributes="Bold" Style="{StaticResource OperazioneStile}"
+  Clicked="SommaButton" />
+        <Button Text="=" Grid.Row="6" Grid.Column="3"  FontSize ="30" FontAttributes="Bold"   HeightRequest="75" WidthRequest="75" Style="{StaticResource UgualeStile}"
+  Clicked="UgualeButton" />
+
+
+
+
+    </Grid>
+</ContentPage>

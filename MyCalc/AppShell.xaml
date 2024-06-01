@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+
+<Shell
+    x:Class="MyCalc.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MyCalc"
+    Shell.FlyoutBehavior="Flyout" 
+    Shell.BackgroundColor="White"
+    Shell.ForegroundColor="Black"
+    Shell.TitleColor="#a8cff2"
+    FlyoutIcon="main_hamburger"
+    FlyoutBackgroundColor="White"
+    x:Name="shell">
+    <Shell.FlyoutBackdrop>
+        <LinearGradientBrush StartPoint="0,0"
+                             EndPoint="1,1" >
+            <GradientStop Color="#3d85c6"
+                          Offset="0.1" />
+            <GradientStop Color="#6fa8dc"
+                          Offset="0.6" />
+            <GradientStop Color="#cfe2f3"
+                          Offset="1.0" />
+        </LinearGradientBrush>
+    </Shell.FlyoutBackdrop>
+    <!--FlyoutIcon="{StaticResource IconOne}"-->
+    <!--Per definire il Layout dei FlyoutItem è possibile definire lo Shell.ItemTemplate-->
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="50,*" Padding="10">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                Value="Transparent" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                Value="{AppThemeBinding Light=#E9E9E9, Dark=#282828}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+
+                <Image Source="{Binding FlyoutIcon}" WidthRequest="40" HorizontalOptions="Center"/>
+                <Label Grid.Column="1" Style="{StaticResource menuStyle}" Text="{Binding Title}" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+   
+    <Shell.FlyoutHeader>
+        <VerticalStackLayout>
+            <Label Text="Opzioni"
+                   TextColor="LightBlue"/>
+        </VerticalStackLayout>
+    </Shell.FlyoutHeader>
+
+
+
+    <FlyoutItem Title="Standard" >
+        <ShellContent
+         Title="Standard" 
+         ContentTemplate="{DataTemplate local:MainPage}"
+         Route="OnePage" />
+    </FlyoutItem>
+    <FlyoutItem Title="Scientifica" >
+        <ShellContent
+         Title="Scientifica"
+         ContentTemplate="{DataTemplate local:ScientificaPage}"
+         Route="TwoPage" />
+    </FlyoutItem>
+    <FlyoutItem Title="Cronologia" FlyoutIcon="cronologia.png" >
+        <ShellContent
+         Title="Cronologia"
+         ContentTemplate="{DataTemplate local:CronologiaPage}"
+         Route="ThreePage" />
+    </FlyoutItem>
+    <FlyoutItem Title="Impostazioni" FlyoutIcon ="impostazioni.png">
+        <ShellContent
+         Title="Four" 
+         ContentTemplate="{DataTemplate local:MainPage}"
+         Route="FourPage" />
+    </FlyoutItem>
+    <FlyoutItem Title="Informazioni" FlyoutIcon="info.png">
+        <ShellContent
+            Title="Informazioni"
+         ContentTemplate="{DataTemplate local:InformazioniPage}"
+            Route="FivePage">
+        </ShellContent>
+    </FlyoutItem>
+ </Shell>

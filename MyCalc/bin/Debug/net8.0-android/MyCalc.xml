@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyCalc</name>
+    </assembly>
+    <members>
+        <member name="M:MyCalc.CalcEngine.FormatAndRoundDisplayValueStringAfterResult">
+            <summary>
+            This method tries to perform rounding of the DisplayValueString when the result has to be returned back to the user. 
+            This happens in case of unary operator like, sqrt, reciprocal, square, etc. or in case of the equals sign
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.FormatDisplayValueStringBeforeResult">
+            <summary>
+            This method tries to perform formatting of the DisplayValueString as long as the input is written, before
+            the result is returned back to the user. This method is used to provide proper digit separator according
+            to the current culture
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.ResetDisplayStatus(System.Nullable{System.Double})">
+            <summary>
+            Reset the status of display in the CalcEngine. The memory is not affected.
+            If a DisplayValue is provided it is loaded in the display
+            </summary>
+            <param name="DisplayValue">The new DisplayValue to load in the CalcEngine
+            </param>
+        </member>
+        <member name="M:MyCalc.CalcEngine.NumberPressed(System.Int32)">
+            <summary>
+            A number button was pressed.
+            </summary>
+            <param name="number">The single digit</param>
+        </member>
+        <member name="M:MyCalc.CalcEngine.NumberBack">
+            <summary>
+            The "left arrow" was pressed
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.InsertDecimalSeparator">
+            <summary>
+            The decimal separator was inserted
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.Plus">
+            <summary>
+            Apply + operator
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.Minus">
+            <summary>
+            Apply - operator
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.Multiply">
+            <summary>
+            Apply * operator
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.Divide">
+            <summary>
+            Apply / operator
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.Sqrt">
+            <summary>
+            Perform the Sqrt of the displayValue.
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.Square">
+            <summary>
+            Perform the Square of the displayValue. Unary operator
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.Reciprocal">
+            <summary>
+            Apply 1/x operator. Unary operator
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.Percentage">
+            <summary>
+            Apply % operator
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.Equals">
+            <summary>
+            Apply = operator
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.ClearCalculation">
+            <summary>
+            Apply the 'C' (ClearCalculation). Clears all input to the calculator
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.ClearLastOperation">
+            <summary>
+            Clears the most recent entry (CE) in display
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.MemoryStoreValue(System.Double)">
+            <summary>
+            Stores valueToStore to memory. The Memory Store (MS) button click can be implemented by
+            storing current display value to memory. 
+            The last value inserted is placed on top (0 index) in the list
+            </summary>
+            <param name="valueToStore">The value to store in memory</param>
+        </member>
+        <member name="M:MyCalc.CalcEngine.MemoryClearValue">
+            <summary>
+            Clear all data from memory.This corresponds to Memory Clear (MC) button click. 
+            </summary>
+        </member>
+        <member name="M:MyCalc.CalcEngine.MemoryRecallValue">
+            <summary>
+            Memory Recall (MR). Recalls last value from the memory and store it in display.
+            A value must be present in the memory, otherwise nothing is recalled
+            </summary>
+            <returns>true if a value was recalled from memory, false otherwise</returns>
+        </member>
+        <member name="M:MyCalc.CalcEngine.AddToMemory(System.Double)">
+            <summary>
+            Add current valueToAdd to memory. The M+ button can be implemented by 
+            adding current display value to memory
+            </summary>
+            <param name="valueToAdd">The value to add to memory</param>
+        </member>
+        <member name="M:MyCalc.CalcEngine.SubFromMemory(System.Double)">
+            <summary>
+            Subtracts current valueToSubtract from memory. The M- button can be implemented by 
+            subtracting current display value from memory
+            </summary>
+            <param name="valueToSubtract">The value to subtract from memory</param>
+        </member>
+        <member name="M:MyCalc.CalcEngine.ApplyPreviousOperator">
+            <summary>
+            Apply the immediately preceding operator to calculate an intermediate result.
+            This will form the left operand of the new operator. This method is usually 
+            called when an operator button has been pressed. 
+            </summary>
+            <exception cref="T:System.ArithmeticException">If calculation produces ArithmeticException</exception>
+            <exception cref="T:System.OverflowException">If calculation produces OverflowException</exception>
+        </member>
+        <member name="M:MyCalc.CalcEngine.InvertDisplaySign">
+            <summary>
+            Invert the sign of displayValue
+            </summary>
+        </member>
+    </members>
+</doc>
